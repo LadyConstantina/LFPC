@@ -14,7 +14,7 @@ public class Lox {
     public static void main(String[] args) throws IOException {
         boolean file = true;
         if (file) {
-            runFile("C:\\Users\\User\\Desktop\\grammar example.txt");
+            runFile("...\\grammar example.txt");
         } else {
             runPrompt();
         }
