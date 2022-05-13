@@ -1,0 +1,27 @@
+PROCESS quantity MIXING (quantity a,b){
+	c = a + b;
+	RETURN c;
+}
+
+PROCESS quantity G2ML (quantity a){
+}
+
+PROCESS empty RESULT (product a,b; quantity c){
+	PRINT("Mixing "+a+" and "+b+" we get "+c+"ml of sweet water.");
+}
+
+MAIN{
+	//comment
+	product produs1 -> "Apa clocotita";
+	product produs2 -> "Zahar";
+	quantity p1_q -> 100;
+	quantity p2_q -> 50;
+	GT quantity grams -> [p2_q];
+	IF (p1_q in grams){
+		p1_q -> G2ML(p1_q);
+	} ELSE IF (p2_q in grams){
+		p2_q -> G2ML(p2_q);
+	}
+	quantity rezultat -> MIXING (p1_q,p2_q);
+	RESULT(produs1,produs2,rezultat);
+}
